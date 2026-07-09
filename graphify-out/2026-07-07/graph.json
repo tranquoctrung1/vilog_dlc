@@ -1,0 +1,602 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "send_queue_handshake_pattern",
+        "label": "Send queue handshake pattern",
+        "nodes": [
+          "serialcom_form1_addtoqueue",
+          "serialcom_form1_sendloop",
+          "serialcom_form1_sendqueue",
+          "serialcom_form1_iswaiting",
+          "serialcom_form1_receivedtext1"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.9,
+        "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md"
+      },
+      {
+        "id": "vilogldc_docs_bundle",
+        "label": "VilogLDC agent/skill documentation set",
+        "nodes": [
+          "claude_agents_serial_protocol_reviewer",
+          "claude_agents_vb_winforms_developer",
+          "claude_skills_vb_winforms_conventions_skill",
+          "claude_skills_vilog_serial_protocol_skill"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.75,
+        "source_file": ".claude/agents/vb-winforms-developer.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "VilogLDC.vbproj",
+      "file_type": "code",
+      "source_file": "SerialCom/VilogLDC.vbproj",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "serialcom_vilogldc",
+      "community": 0,
+      "norm_label": "vilogldc.vbproj"
+    },
+    {
+      "label": "VilogLDC.sln",
+      "file_type": "code",
+      "source_file": "VilogLDC.sln",
+      "source_location": null,
+      "_origin": "ast",
+      "id": "vilogldc",
+      "community": 0,
+      "norm_label": "vilogldc.sln"
+    },
+    {
+      "label": "Note.txt",
+      "file_type": "document",
+      "source_file": "Note.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "note",
+      "community": 2,
+      "norm_label": "note.txt"
+    },
+    {
+      "label": "serial-protocol-reviewer agent",
+      "file_type": "document",
+      "source_file": ".claude/agents/serial-protocol-reviewer.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_agents_serial_protocol_reviewer",
+      "community": 2,
+      "norm_label": "serial-protocol-reviewer agent"
+    },
+    {
+      "label": "vb-winforms-developer agent",
+      "file_type": "document",
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_agents_vb_winforms_developer",
+      "community": 2,
+      "norm_label": "vb-winforms-developer agent"
+    },
+    {
+      "label": "vb-winforms-conventions skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_skills_vb_winforms_conventions_skill",
+      "community": 0,
+      "norm_label": "vb-winforms-conventions skill"
+    },
+    {
+      "label": "vilog-serial-protocol skill",
+      "file_type": "document",
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_skills_vilog_serial_protocol_skill",
+      "community": 1,
+      "norm_label": "vilog-serial-protocol skill"
+    },
+    {
+      "label": "Form1.vb",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1",
+      "community": 2,
+      "norm_label": "form1.vb"
+    },
+    {
+      "label": "Config()",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_config",
+      "community": 1,
+      "norm_label": "config()"
+    },
+    {
+      "label": "ReceivedText1",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_receivedtext1",
+      "community": 3,
+      "norm_label": "receivedtext1"
+    },
+    {
+      "label": "ReceivedText2",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_receivedtext2",
+      "community": 1,
+      "norm_label": "receivedtext2"
+    },
+    {
+      "label": "ReceivedText3",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_receivedtext3",
+      "community": 0,
+      "norm_label": "receivedtext3"
+    },
+    {
+      "label": "AddToQueue",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_addtoqueue",
+      "community": 1,
+      "norm_label": "addtoqueue"
+    },
+    {
+      "label": "SendLoop",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_sendloop",
+      "community": 3,
+      "norm_label": "sendloop"
+    },
+    {
+      "label": "sendQueue",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_sendqueue",
+      "community": 3,
+      "norm_label": "sendqueue"
+    },
+    {
+      "label": "isWaiting flag",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_iswaiting",
+      "community": 3,
+      "norm_label": "iswaiting flag"
+    },
+    {
+      "label": "Form1_Load",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_form_load",
+      "community": 0,
+      "norm_label": "form1_load"
+    },
+    {
+      "label": "Button15_Click_1",
+      "file_type": "code",
+      "source_file": "SerialCom/Form1.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_form1_button15_click_1",
+      "community": 1,
+      "norm_label": "button15_click_1"
+    },
+    {
+      "label": "popupMonitorScreen.vb",
+      "file_type": "code",
+      "source_file": "SerialCom/popupMonitorScreen.vb",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "serialcom_popupmonitorscreen",
+      "community": 0,
+      "norm_label": "popupmonitorscreen.vb"
+    }
+  ],
+  "links": [
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vb_winforms_conventions_skill",
+      "target": "serialcom_vilogldc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "VilogLDC.sln",
+      "weight": 1.0,
+      "source": "vilogldc",
+      "target": "serialcom_vilogldc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/agents/serial-protocol-reviewer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_serial_protocol_reviewer",
+      "target": "note"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_vb_winforms_developer",
+      "target": "note"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "note"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "Note.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "note",
+      "target": "serialcom_form1_sendloop"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/serial-protocol-reviewer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_serial_protocol_reviewer",
+      "target": "claude_skills_vilog_serial_protocol_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/serial-protocol-reviewer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_serial_protocol_reviewer",
+      "target": "serialcom_form1"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_vb_winforms_developer",
+      "target": "claude_agents_serial_protocol_reviewer"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_vb_winforms_developer",
+      "target": "claude_skills_vb_winforms_conventions_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_vb_winforms_developer",
+      "target": "claude_skills_vilog_serial_protocol_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/agents/vb-winforms-developer.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agents_vb_winforms_developer",
+      "target": "serialcom_form1"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vb_winforms_conventions_skill",
+      "target": "claude_skills_vilog_serial_protocol_skill"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vb_winforms_conventions_skill",
+      "target": "serialcom_form1"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vb_winforms_conventions_skill",
+      "target": "serialcom_form1_form_load"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vb-winforms-conventions/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vb_winforms_conventions_skill",
+      "target": "serialcom_popupmonitorscreen"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_addtoqueue"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_button15_click_1"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_iswaiting"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_receivedtext1"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_receivedtext2"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_receivedtext3"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_skills_vilog_serial_protocol_skill",
+      "target": "serialcom_form1_sendloop"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "serialcom_form1_config",
+      "target": "serialcom_form1_addtoqueue"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "serialcom_form1_receivedtext1",
+      "target": "serialcom_form1_iswaiting"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "serialcom_popupmonitorscreen",
+      "target": "serialcom_form1_receivedtext3"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "serialcom_form1_sendloop",
+      "target": "serialcom_form1_iswaiting"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "serialcom_form1_sendloop",
+      "target": "serialcom_form1_sendqueue"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "send_queue_handshake_pattern",
+      "label": "Send queue handshake pattern",
+      "nodes": [
+        "serialcom_form1_addtoqueue",
+        "serialcom_form1_sendloop",
+        "serialcom_form1_sendqueue",
+        "serialcom_form1_iswaiting",
+        "serialcom_form1_receivedtext1"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": ".claude/skills/vilog-serial-protocol/SKILL.md"
+    },
+    {
+      "id": "vilogldc_docs_bundle",
+      "label": "VilogLDC agent/skill documentation set",
+      "nodes": [
+        "claude_agents_serial_protocol_reviewer",
+        "claude_agents_vb_winforms_developer",
+        "claude_skills_vb_winforms_conventions_skill",
+        "claude_skills_vilog_serial_protocol_skill"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": ".claude/agents/vb-winforms-developer.md"
+    }
+  ]
+}

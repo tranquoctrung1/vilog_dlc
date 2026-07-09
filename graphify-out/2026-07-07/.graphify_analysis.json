@@ -1,0 +1,150 @@
+{
+  "communities": {
+    "0": [
+      "claude_skills_vb_winforms_conventions_skill",
+      "serialcom_form1_form_load",
+      "serialcom_form1_receivedtext3",
+      "serialcom_popupmonitorscreen",
+      "serialcom_vilogldc",
+      "vilogldc"
+    ],
+    "1": [
+      "claude_skills_vilog_serial_protocol_skill",
+      "serialcom_form1_addtoqueue",
+      "serialcom_form1_button15_click_1",
+      "serialcom_form1_config",
+      "serialcom_form1_receivedtext2"
+    ],
+    "2": [
+      "claude_agents_serial_protocol_reviewer",
+      "claude_agents_vb_winforms_developer",
+      "note",
+      "serialcom_form1"
+    ],
+    "3": [
+      "serialcom_form1_iswaiting",
+      "serialcom_form1_receivedtext1",
+      "serialcom_form1_sendloop",
+      "serialcom_form1_sendqueue"
+    ]
+  },
+  "cohesion": {
+    "0": 0.3333333333333333,
+    "1": 0.5,
+    "2": 0.8333333333333334,
+    "3": 0.5
+  },
+  "gods": [
+    {
+      "id": "claude_skills_vilog_serial_protocol_skill",
+      "label": "vilog-serial-protocol skill",
+      "degree": 12
+    },
+    {
+      "id": "claude_skills_vb_winforms_conventions_skill",
+      "label": "vb-winforms-conventions skill",
+      "degree": 6
+    },
+    {
+      "id": "claude_agents_vb_winforms_developer",
+      "label": "vb-winforms-developer agent",
+      "degree": 5
+    },
+    {
+      "id": "claude_agents_serial_protocol_reviewer",
+      "label": "serial-protocol-reviewer agent",
+      "degree": 4
+    },
+    {
+      "id": "serialcom_form1_sendloop",
+      "label": "SendLoop",
+      "degree": 4
+    },
+    {
+      "id": "serialcom_form1_iswaiting",
+      "label": "isWaiting flag",
+      "degree": 3
+    },
+    {
+      "id": "serialcom_form1_config",
+      "label": "Config()",
+      "degree": 2
+    },
+    {
+      "id": "serialcom_form1_receivedtext1",
+      "label": "ReceivedText1",
+      "degree": 2
+    },
+    {
+      "id": "serialcom_form1_receivedtext3",
+      "label": "ReceivedText3",
+      "degree": 2
+    },
+    {
+      "id": "serialcom_form1_addtoqueue",
+      "label": "AddToQueue",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "vilog-serial-protocol skill",
+      "target": "ReceivedText1",
+      "source_files": [
+        ".claude/skills/vilog-serial-protocol/SKILL.md",
+        "SerialCom/Form1.vb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `ReceivedText1` unexpectedly reaches hub `vilog-serial-protocol skill`"
+    },
+    {
+      "source": "vilog-serial-protocol skill",
+      "target": "ReceivedText3",
+      "source_files": [
+        ".claude/skills/vilog-serial-protocol/SKILL.md",
+        "SerialCom/Form1.vb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `ReceivedText3` unexpectedly reaches hub `vilog-serial-protocol skill`"
+    },
+    {
+      "source": "vb-winforms-conventions skill",
+      "target": "Form1_Load",
+      "source_files": [
+        ".claude/skills/vb-winforms-conventions/SKILL.md",
+        "SerialCom/Form1.vb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `Form1_Load` unexpectedly reaches hub `vb-winforms-conventions skill`"
+    },
+    {
+      "source": "vilog-serial-protocol skill",
+      "target": "AddToQueue",
+      "source_files": [
+        ".claude/skills/vilog-serial-protocol/SKILL.md",
+        "SerialCom/Form1.vb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `AddToQueue` unexpectedly reaches hub `vilog-serial-protocol skill`"
+    },
+    {
+      "source": "vilog-serial-protocol skill",
+      "target": "Button15_Click_1",
+      "source_files": [
+        ".claude/skills/vilog-serial-protocol/SKILL.md",
+        "SerialCom/Form1.vb"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `Button15_Click_1` unexpectedly reaches hub `vilog-serial-protocol skill`"
+    }
+  ],
+  "tokens": {
+    "input": 59064,
+    "output": 4871
+  }
+}

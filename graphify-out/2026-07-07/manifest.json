@@ -1,0 +1,37 @@
+{
+  ".vs/VilogLDC/v17/DocumentLayout.backup.json": {
+    "mtime": 1776822336.6352675,
+    "ast_hash": "0ee19ebe7aab0d432f5c572d81f6045e",
+    "semantic_hash": "0ee19ebe7aab0d432f5c572d81f6045e"
+  },
+  ".vs/VilogLDC/v17/DocumentLayout.json": {
+    "mtime": 1776822363.916128,
+    "ast_hash": "8652a16a09a1a3ac4e24711aa5bc39ee",
+    "semantic_hash": "8652a16a09a1a3ac4e24711aa5bc39ee"
+  },
+  ".vs/VilogLDC/v18/DocumentLayout.backup.json": {
+    "mtime": 1781680242.944139,
+    "ast_hash": "f7d23f806e52adffc0318ad302e682aa",
+    "semantic_hash": "f7d23f806e52adffc0318ad302e682aa"
+  },
+  ".vs/VilogLDC/v18/DocumentLayout.json": {
+    "mtime": 1781686932.9960494,
+    "ast_hash": "a6fb387e15aae636318cf67ffde1ffbf",
+    "semantic_hash": "a6fb387e15aae636318cf67ffde1ffbf"
+  },
+  "SerialCom/.vs/VilogLDC.vbproj.dtbcache.json": {
+    "mtime": 1779255031.3713067,
+    "ast_hash": "d1de2212a638ea6245411c9cc87b8d64",
+    "semantic_hash": "d1de2212a638ea6245411c9cc87b8d64"
+  },
+  "SerialCom/VilogLDC.vbproj": {
+    "mtime": 1779255031.3633063,
+    "ast_hash": "0f9747eae23c151df9887a45d8d0506b",
+    "semantic_hash": "0f9747eae23c151df9887a45d8d0506b"
+  },
+  "VilogLDC.sln": {
+    "mtime": 1721179949.3680847,
+    "ast_hash": "0876c94e8f5532d255af2d84adb7ec9e",
+    "semantic_hash": "0876c94e8f5532d255af2d84adb7ec9e"
+  }
+}

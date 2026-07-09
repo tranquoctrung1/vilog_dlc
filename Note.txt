@@ -1,0 +1,21 @@
+Update dùng thread cho serial port write
+Update sửa lỗi không upload được parameter
+Update sửa nút config, chuyển sang dùng flag chờ phản hồi ok rồi mới cho chạy lệnh tiếp theo
+(Không sử dụng thread.Sleep để chờ nữa)
+Fix sửa lỗi hàng đợi treo: chờ "OK"/"ERROR" thay vì "K", thêm timeout, gộp buffer nhận nhiều mảnh
+Fix đồng bộ hoá cờ isWaiting/sending, khoá SyncLock cho mọi SerialPort1.Write
+Fix bắt lỗi parse PUBTOPIC/CLOCKLOG, tolerant xuống dòng CrLf/Lf, kiểm tra số NIC
+Fix mã hoá hex năm 2 byte, hour+1 wrap 24h, đóng cổng khi thoát, bỏ Thread.Sleep treo UI
+Fix Case "24h" gan sai sendTime = 60*12 (copy-paste tu "12h"), sua thanh 60*24 (Krohne + Bavitech)
+Refactor doi ten cac handler/method mo ho (Button1_Click_1, ReceivedText1...) sang ten theo chuc nang, khong doi logic
+Update loc dropdown logTime (ComboBox4) theo sendTime (ComboBox3) + sensor, chi cho chon combo co so mau <=14 (gioi han buffer thiet bi)
+Fix read-back CLOCKLOG: them lai logTime label vao ComboBox4.Items neu bi filter loai, tranh hien thi sai gia tri thiet bi
+Fix them Case "1m"/"5m" cho sendTime Krohne + BVT (dong bo voi bo loc UI, tranh setTime tinh sai)
+Update khoa logTime (ComboBox4) khi chua chon sendTime (ComboBox3): disable luc load, chi enable sau khi co sendTime
+Fix bat loi parse AT+TDC: bo qua dong loi thay vi crash CInt("") tren line rong/cat cut khi read-back parameter
+Update hien thi moi phan hoi thiet bi vao o log cam (RichTextBox2) khong chi khi isConfiguring; doi cac dong status tu ghi de (Text=) sang append de khong xoa log dang chay
+Update "Password Incorrect" luc dang chay: bo MessageBox, tu dong disconnect+reconnect im lang, co isAutoReconnecting chong reconnect chong lan
+Update doi nut Button15 tu "Sync Time" sang "Send Data": gui AT+GETSENSORVALUE=1 thay vi AT+TIMESTAMP=
+Update kiem tra thieu thong tin (ID/Site Name/Meter/Cycle Send/Cycle Log) truoc khi Download, canh bao va dung neu thieu
+Update thong nhat dropdown logTime (ComboBox4) cho moi sensor: Aichi Tokei gio co du 5/10/15/30/60m nhu Krohne/BVT; them Case "5m"=00 05, "10m"=00 0A vao intervalLogTime Aichi (chi la hex phut tho, khong phai bang tra cuu bi gioi han)
+Update thong nhat lai dropdown logTime (ComboBox4) ve 15/30/60m cho moi sensor (Krohne, Aichi Tokei, BVT): bo mo rong 5m/10m cho Krohne/BVT ma user khong muon; Case "5m"/"10m" trong Config() giu nguyen (khong con voi tay toi tu dropdown, vo hai)
