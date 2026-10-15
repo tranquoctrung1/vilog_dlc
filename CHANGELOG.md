@@ -42,5 +42,21 @@ Phạm vi diff: chỉ `SerialCom/Form1.vb` và `SerialCom/Form1.Designer.vb` tha
 - `RichTextBox1_KeyDown` → `DebugCommandInput_KeyDown`
 - Tách hàm `RebrandDeviceNameText` / `RebrandLoggerText` / `RebrandDebugText` (gộp logic thay thế `"AT+"`→`"VILOG_"`/`"Vilog_"` và `"DRAGINO"`→`"BAVITECH"` bị lặp lại trước đó).
 
+## [1.4] - 2026-10-15
+
+### Thêm mới
+- **Hỗ trợ Siemens MAG8000** — thêm lựa chọn `"Siemens MAG8000"` trong ComboBox5 (danh sách loại đồng hồ). Dùng Modbus RTU function 03 (read holding registers), 4 slot lệnh: Slot1 Flow (`0x0BB9`, 2 reg), Slot2 Forward+Reverse Total (`0x0BC8`, 8 reg), Slot3 Alarm (`0x0BC7`, 1 reg), Slot4 Battery (`0x0BD5`, 1 reg). Offset các thanh ghi đã kiểm chứng trên thiết bị thực (cao hơn 1 so với công thức `43xxx - 1` trong tài liệu hãng). Slot 1-3 dùng `DATACUT=0,0,0` (không cắt, giữ nguyên frame Modbus thô).
+- **Topic riêng cho MAG8000** — khi chọn Siemens MAG8000, topic `SUBTOPIC`/`PUBTOPIC` được chèn thêm đoạn `MAG_` (`Vilog_MAG_<Site>_<ID>_SUB/PUB`) để phân biệt với các loại đồng hồ khác (chia sẻ cùng JSON wrapper "RS485-CB"/Model). Đọc lại tham số (PUBTOPIC read-back) cũng nhận diện đúng đoạn `MAG_` để tự chọn lại ComboBox5 và lệch đúng vị trí trường Site/ID.
+- **Thêm tùy chọn sendTime/logTime mới** — `"1m"`, `"2m"`, `"3m"`, `"6m"` (cho cả ComboBox3 và ComboBox4), mã hex tương ứng (`00 01`, `00 02`, `00 03`, `00 06`).
+
+### Sửa lỗi
+- **Lệnh NTP** — gửi `AT+NTP="my.pool.ntp.org"` xuống thiết bị (sửa chuỗi VB sai cú pháp, dùng `""` thay `\"`).
+- **Chia lấy mẫu đệm (setTime) sai kiểu** — `CInt(sendTime / logTime)` làm tròn (ví dụ 0.5 cmau thành 1 sai số), đổi sang `sendTime \ logTime` (chia nguyên, floor) đúng với số mẫu thiết bị thực đệm.
+- **Bộ lọc logTime (RebuildLogTimeItems) chặn nhầm tổ hợp hợp lệ** — trước đây yêu cầu `logTime` chia hết `sendTime`; nay chỉ cần `logTime <= sendTime` và `sendTime \ logTime <= 14` (chu kỳ ghi cuối trước khi gửi được phép ngắn hơn, không cần chia hết).
+
+### Thay đổi
+- **`AT+5VT`** — đổi từ `1000` sang `4000` (thời gian cấp nguồn 5V cho sensor trước khi đọc).
+- **Tên assembly** — `VilogLDC` → `VilogLDC_1.4` trong `.vbproj` (`AssemblyName`, `DocumentationFile`), kèm `AutoGenerateBindingRedirects=false`.
+
 ## [1.2] - 2026-06-15
 Bản gốc trước khi có các thay đổi trên.

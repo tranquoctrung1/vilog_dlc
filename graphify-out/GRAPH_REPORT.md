@@ -1,55 +1,63 @@
-# Graph Report - VilogLite_V1.3  (2026-07-09)
+# Graph Report - VilogLite_V1.3  (2026-10-15)
 
 ## Corpus Check
-- 25 files · ~11,991 words
+- 23 files · ~14,304 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 177 nodes · 147 edges · 31 communities (20 shown, 11 thin omitted)
+- 210 nodes · 177 edges · 34 communities (23 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
+## Graph Freshness
+- Built from commit: `d6aa4799`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
+
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_WinForms Project Setup|WinForms Project Setup]]
-- [[_COMMUNITY_Serial Command Config|Serial Command Config]]
-- [[_COMMUNITY_Dev Agents & Notes|Dev Agents & Notes]]
-- [[_COMMUNITY_Serial Send Queue|Serial Send Queue]]
-- [[_COMMUNITY_Serial Protocol Reviewer (VilogLDC)|Serial Protocol Reviewer (VilogLDC)]]
-- [[_COMMUNITY_VilogLDC Feature Workflow Orchestrator|VilogLDC Feature Workflow Orchestrator]]
-- [[_COMMUNITY_Workflow|Workflow]]
-- [[_COMMUNITY_Developer Summary — Phase 01|Developer Summary — Phase 01]]
-- [[_COMMUNITY_CLAUDE|CLAUDE.md]]
-- [[_COMMUNITY_VilogLDC|VilogLDC]]
-- [[_COMMUNITY_AddToQueue|AddToQueue]]
-- [[_COMMUNITY_Button15_Click_1|Button15_Click_1]]
-- [[_COMMUNITY_Form1_Load|Form1_Load]]
-- [[_COMMUNITY_isWaiting flag|isWaiting flag]]
-- [[_COMMUNITY_ReceivedText1|ReceivedText1]]
-- [[_COMMUNITY_ReceivedText2|ReceivedText2]]
-- [[_COMMUNITY_ReceivedText3|ReceivedText3]]
-- [[_COMMUNITY_sendQueue|sendQueue]]
-- [[_COMMUNITY_Findings (advisory)|Findings (advisory)]]
-- [[_COMMUNITY_Developer Summary — Phase 01|Developer Summary — Phase 01]]
-- [[_COMMUNITY_01 Developer Summary — logTime dropdown filtering by sendTime + sensor|01 Developer Summary — logTime dropdown filtering by sendTime + sensor]]
-- [[_COMMUNITY_01 Developer Summary — AT+TDC parse crash fix|01 Developer Summary — AT+TDC parse crash fix]]
-- [[_COMMUNITY_Verification against the review checklist|Verification against the review checklist]]
-- [[_COMMUNITY_What changed in Form1.vb|What changed in Form1.vb]]
-- [[_COMMUNITY_02 Reviewer Findings — logTime dropdown filter (ComboBox4) by sendTime + sensor|02 Reviewer Findings — logTime dropdown filter (ComboBox4) by sendTime + sensor]]
-- [[_COMMUNITY_02 - Reviewer Findings RichTextBox2 unconditional device-response logging|02 - Reviewer Findings: RichTextBox2 unconditional device-response logging]]
-- [[_COMMUNITY_03 Developer Summary — Silent auto-reconnect on Password Incorrect|03 Developer Summary — Silent auto-reconnect on "Password Incorrect"]]
-- [[_COMMUNITY_02 - Reviewer Findings RichTextBox2 unconditional device-response logging|02 - Reviewer Findings: RichTextBox2 unconditional device-response logging]]
+- WinForms Project Setup
+- Serial Command Config
+- Dev Agents & Notes
+- Serial Send Queue
+- Serial Protocol Reviewer (VilogLDC)
+- VilogLDC Feature Workflow Orchestrator
+- Workflow
+- Developer Summary — Phase 01
+- CLAUDE.md
+- VilogLDC
+- AddToQueue
+- Button15_Click_1
+- Form1_Load
+- isWaiting flag
+- ReceivedText1
+- ReceivedText2
+- ReceivedText3
+- sendQueue
+- Findings (advisory)
+- Developer Summary — Phase 01
+- 01 Developer Summary — logTime dropdown filtering by sendTime + sensor
+- 01 Developer Summary — AT+TDC parse crash fix
+- Verification against the review checklist
+- What changed in Form1.vb
+- 02 Reviewer Findings — logTime dropdown filter (ComboBox4) by sendTime + sensor
+- 02 - Reviewer Findings: RichTextBox2 unconditional device-response logging
+- 03 Developer Summary — Silent auto-reconnect on "Password Incorrect"
+- 02 - Reviewer Findings: RichTextBox2 unconditional device-response logging
+- [1.3] - 2026-07-09
+- Follow-up: UI ordering gate (sendTime before logTime)
+- VilogLDC
 
 ## God Nodes (most connected - your core abstractions)
 1. `VilogLDC Serial Protocol` - 9 edges
 2. `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` - 9 edges
-3. `Developer Summary — Rename-only refactor` - 8 edges
-4. `01 - Developer Summary: RichTextBox2 unconditional device-response logging` - 8 edges
-5. `VB.NET WinForms Developer (VilogLDC)` - 7 edges
-6. `VilogLDC WinForms Conventions` - 7 edges
-7. `01 Developer Summary — Unify logTime dropdown to 15m/30m/60m` - 7 edges
-8. `Findings (advisory)` - 7 edges
-9. `01 Developer Summary — AT+TDC parse crash fix` - 7 edges
-10. `03 Developer Summary — Silent auto-reconnect on "Password Incorrect"` - 7 edges
+3. `02 Reviewer Findings — Unify logTime dropdown to 15m/30m/60m` - 8 edges
+4. `Developer Summary — Rename-only refactor` - 8 edges
+5. `01 - Developer Summary: RichTextBox2 unconditional device-response logging` - 8 edges
+6. `VB.NET WinForms Developer (VilogLDC)` - 7 edges
+7. `VilogLDC WinForms Conventions` - 7 edges
+8. `01 Developer Summary — Unify logTime dropdown to 15m/30m/60m` - 7 edges
+9. `Findings (advisory)` - 7 edges
+10. `01 Developer Summary — AT+TDC parse crash fix` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -57,7 +65,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (31 total, 11 thin omitted)
+## Communities (34 total, 11 thin omitted)
 
 ### Community 0 - "WinForms Project Setup"
 Cohesion: 0.25
@@ -87,6 +95,10 @@ Nodes (12): Button click handlers, Developer Summary — Rename-only refactor, F
 Cohesion: 0.25
 Nodes (7): 01 Developer Summary — Unify logTime dropdown to 15m/30m/60m, Build / test status, Change made, Flag for reviewer — dead code, Goal, Protocol note, Verification of downstream code (no changes needed)
 
+### Community 9 - "VilogLDC"
+Cohesion: 0.22
+Nodes (8): 02 Reviewer Findings — Unify logTime dropdown to 15m/30m/60m, 1. `<=14` filter vs narrowed set — no empty list for any sendTime (CONFIRMED), 2. Dead `Case` branches genuinely unreachable and harmless (CONFIRMED), 3. CLOCKLOG encoding and read-back parsing unaffected (CONFIRMED), 4. Note.txt entry appended correctly (CONFIRMED), Non-blocking observation (pre-existing, not introduced by this change), Scope reviewed, Threading / handshake
+
 ### Community 21 - "Findings (advisory)"
 Cohesion: 0.20
 Nodes (9): Finding 1 — MEDIUM: `serialLock` held across a blocking `SerialPort1.Write` on the UI thread, Finding 2 — LOW: flat 15 s `WaitTimeoutMs` ignores per-command expected latency, Finding 3 — MEDIUM (needs hardware/datasheet confirmation): year encoding change alters emitted bytes, Finding 4 — LOW / pre-existing: connect "OK" match may fire before password validation, Finding 5 — LOW / pre-existing (not in this diff): Krohne read-back case mismatch, Findings (advisory), Protocol Review — Phase 02 (fixes for bugs #1-8,10,13-15), Trivial (+1 more)
@@ -97,7 +109,7 @@ Nodes (6): Bug-by-bug, Confirmation, Developer Summary — Phase 01, New shared 
 
 ### Community 23 - "01 Developer Summary — logTime dropdown filtering by sendTime + sensor"
 Cohesion: 0.11
-Nodes (17): 01 Developer Summary — logTime dropdown filtering by sendTime + sensor, Behavior change to flag for review, Change (2 edits, `SerialCom/Form1.vb`), ComboBox5 gating — decided NO, Files changed, Finding 1 (MEDIUM regression) — read-back CLOCKLOG silently dropped, Finding 2 (LOW consistency) — missing 1m/5m sendTime cases for Krohne/BVT, Follow-up: reviewer findings 02 addressed (+9 more)
+Nodes (17): 01 Developer Summary — logTime dropdown filtering by sendTime + sensor, Behavior change to flag for review, Empty-list edge case, Files changed, Filtering formula, Finding 1 (MEDIUM regression) — read-back CLOCKLOG silently dropped, Finding 2 (LOW consistency) — missing 1m/5m sendTime cases for Krohne/BVT, Follow-up: reviewer findings 02 addressed (+9 more)
 
 ### Community 24 - "01 Developer Summary — AT+TDC parse crash fix"
 Cohesion: 0.25
@@ -120,27 +132,35 @@ Cohesion: 0.18
 Nodes (10): 03 Developer Summary — Silent auto-reconnect on "Password Incorrect", 1. New guard field (~line 24, next to the other state flags), 2. `ProcessLoggerResponse` (~line 167 — was the MessageBox block), 3. `BtnConnect_Click` — reset the guard in two spots, Files changed, grep for other "Password Incorrect" / "Password Timeout" sites, How re-entrancy is guarded, Revision — reviewer findings addressed (round 2) (+2 more)
 
 ### Community 29 - "03 Developer Summary — Silent auto-reconnect on "Password Incorrect""
-Cohesion: 0.33
-Nodes (6): Empty-list edge case, Filtering formula, New helpers + handlers (added after `Config()`), Old `Config()` override kept as defensive fallback, Selection preservation, What changed in Form1.vb
+Cohesion: 0.17
+Nodes (11): [1.2] - 2026-06-15, [1.3] - 2026-07-09, [1.4] - 2026-10-15, Nhật ký thay đổi (Changelog), Sửa lỗi, Sửa lỗi, Thay đổi, Thay đổi (+3 more)
 
 ### Community 30 - "02 - Reviewer Findings: RichTextBox2 unconditional device-response logging"
 Cohesion: 0.50
 Nodes (3): 02 - Reviewer Findings: RichTextBox2 unconditional device-response logging, Non-blocking observation (not a finding, out of style scope), Verdict: CLEAN — no protocol or threading defects found.
 
+### Community 31 - "[1.3] - 2026-07-09"
+Cohesion: 0.17
+Nodes (11): [1.2] - 2026-06-15, [1.3] - 2026-07-09, [1.4] - 2026-10-15, Added, Added, Changed, Changed, Changelog (+3 more)
+
+### Community 32 - "Follow-up: UI ordering gate (sendTime before logTime)"
+Cohesion: 0.33
+Nodes (6): Change (2 edits, `SerialCom/Form1.vb`), ComboBox5 gating — decided NO, Follow-up: UI ordering gate (sendTime before logTime), Gap, Read-back path (ProcessLoggerResponse CLOCKLOG branch) — verified safe, Verification
+
 ## Knowledge Gaps
-- **129 isolated node(s):** `VilogLDC`, `핵심 역할`, `작업 원칙`, `입력/출력 프로토콜`, `협업` (+124 more)
+- **152 isolated node(s):** `VilogLDC`, `핵심 역할`, `작업 원칙`, `입력/출력 프로토콜`, `협업` (+147 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` connect `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` to `03 Developer Summary — Silent auto-reconnect on "Password Incorrect"`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **Why does `What changed in Form1.vb` connect `03 Developer Summary — Silent auto-reconnect on "Password Incorrect"` to `01 Developer Summary — logTime dropdown filtering by sendTime + sensor`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+- **Why does `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` connect `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` to `Follow-up: UI ordering gate (sendTime before logTime)`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `Follow-up: UI ordering gate (sendTime before logTime)` connect `Follow-up: UI ordering gate (sendTime before logTime)` to `01 Developer Summary — logTime dropdown filtering by sendTime + sensor`?**
+  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `VilogLDC`, `핵심 역할`, `작업 원칙` to the rest of the system?**
-  _129 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _152 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `01 Developer Summary — logTime dropdown filtering by sendTime + sensor` be split into smaller, more focused modules?**
   _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
 - **Should `What changed in Form1.vb` be split into smaller, more focused modules?**

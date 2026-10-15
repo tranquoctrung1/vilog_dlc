@@ -40,5 +40,21 @@ All notable changes to VilogLDC between v1.2 and v1.3.
 - `RichTextBox1_KeyDown` → `DebugCommandInput_KeyDown`
 - Extracted `RebrandDeviceNameText` / `RebrandLoggerText` / `RebrandDebugText` helper functions (dedup of inline `"AT+"`→`"VILOG_"`/`"Vilog_"` and `"DRAGINO"`→`"BAVITECH"` replace logic).
 
+## [1.4] - 2026-10-15
+
+### Added
+- **Siemens MAG8000 support** — new `"Siemens MAG8000"` entry in ComboBox5 (meter type list). Uses Modbus RTU function 03 (read holding registers), 4 command slots: Slot1 Flow (`0x0BB9`, 2 reg), Slot2 Forward+Reverse Total (`0x0BC8`, 8 reg), Slot3 Alarm (`0x0BC7`, 1 reg), Slot4 Battery (`0x0BD5`, 1 reg). Register offsets confirmed against real hardware reads (one higher than the manual's naive `43xxx - 1` formula). Slots 1-3 use `DATACUT=0,0,0` (no trim, raw Modbus frame passed through).
+- **Dedicated MAG8000 topic** — when Siemens MAG8000 is selected, the `SUBTOPIC`/`PUBTOPIC` strings get a `MAG_` segment inserted (`Vilog_MAG_<Site>_<ID>_SUB/PUB`) to distinguish it from other meter types (which share the same "RS485-CB"/Model JSON wrapper). PUBTOPIC read-back now also detects the `MAG_` segment to re-select ComboBox5 and shift the Site/ID field indices correctly.
+- **New sendTime/logTime options** — `"1m"`, `"2m"`, `"3m"`, `"6m"` (both ComboBox3 and ComboBox4), with matching hex encodings (`00 01`, `00 02`, `00 03`, `00 06`).
+
+### Fixed
+- **NTP command** — now sends `AT+NTP="my.pool.ntp.org"` to device (fixed malformed VB string, use `""` not `\"`).
+- **setTime sample-count division** — `CInt(sendTime / logTime)` rounded instead of truncating (off-by-one against the device's actual buffered sample count); switched to `sendTime \ logTime` (integer/floor division).
+- **RebuildLogTimeItems over-restricted valid combos** — previously required `logTime` to evenly divide `sendTime`; now only requires `logTime <= sendTime` and `sendTime \ logTime <= 14` (the final, shorter log window before an uplink no longer needs to divide evenly).
+
+### Changed
+- **`AT+5VT`** — changed from `1000` to `4000` (sensor 5V power-up time before reading).
+- **Assembly name** — `VilogLDC` → `VilogLDC_1.4` in `.vbproj` (`AssemblyName`, `DocumentationFile`), plus `AutoGenerateBindingRedirects=false`.
+
 ## [1.2] - 2026-06-15
 Baseline version prior to the above changes.

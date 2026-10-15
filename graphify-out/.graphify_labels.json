@@ -29,5 +29,8 @@
   "27": "02 Reviewer Findings — logTime dropdown filter (ComboBox4) by sendTime + sensor",
   "28": "02 - Reviewer Findings: RichTextBox2 unconditional device-response logging",
   "29": "03 Developer Summary — Silent auto-reconnect on \"Password Incorrect\"",
-  "30": "02 - Reviewer Findings: RichTextBox2 unconditional device-response logging"
+  "30": "02 - Reviewer Findings: RichTextBox2 unconditional device-response logging",
+  "31": "[1.3] - 2026-07-09",
+  "32": "Follow-up: UI ordering gate (sendTime before logTime)",
+  "33": "VilogLDC"
 }

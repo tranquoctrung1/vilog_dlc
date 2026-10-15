@@ -264,8 +264,20 @@ Public Class Form1
                         Try
                             Dim Topic As String = Parameter(i).Substring(12)
                             Dim SiteId() As String = Split(Topic, "_")
-                            TextBox12.Text = SiteId(1)
-                            TextBox11.Text = SiteId(2)
+                            ' MAG8000 topics have an extra "MAG" segment (Vilog_MAG_<Site>_<ID>_PUB,
+                            ' 5 fields) vs every other meter type's Vilog_<Site>_<ID>_PUB (4 fields).
+                            ' Detect it here so read-back both sets the MeterType dropdown AND
+                            ' shifts the site/ID field indices — without this shift, a MAG8000
+                            ' read-back would silently populate TextBox12="MAG" and
+                            ' TextBox11=<site name> instead of the real site/ID.
+                            If SiteId.Length >= 2 AndAlso SiteId(1) = "MAG" Then
+                                ComboBox5.SelectedItem = "Siemens MAG8000"
+                                TextBox12.Text = SiteId(2)
+                                TextBox11.Text = SiteId(3)
+                            Else
+                                TextBox12.Text = SiteId(1)
+                                TextBox11.Text = SiteId(2)
+                            End If
                         Catch ex As Exception
                             ' ignore malformed PUBTOPIC line
                         End Try
@@ -593,8 +605,16 @@ cannot_connect:
 
             Dim intervalLogTime As String = "00 0F"
             Select Case ComboBox4.Text
+                Case "1m"
+                    intervalLogTime = "00 01"
+                Case "2m"
+                    intervalLogTime = "00 02"
+                Case "3m"
+                    intervalLogTime = "00 03"
                 Case "5m"
                     intervalLogTime = "00 05"
+                Case "6m"
+                    intervalLogTime = "00 06"
                 Case "10m"
                     intervalLogTime = "00 0A"
                 Case "15m"
@@ -696,8 +716,16 @@ cannot_connect:
 
             Dim logTime As UInt16 = 5
             Select Case ComboBox4.Text
+                Case "1m"
+                    logTime = 1
+                Case "2m"
+                    logTime = 2
+                Case "3m"
+                    logTime = 3
                 Case "5m"
                     logTime = 5
+                Case "6m"
+                    logTime = 6
                 Case "10m"
                     logTime = 10
                 Case "15m"
@@ -767,8 +795,16 @@ cannot_connect:
 
             Dim logTime As UInt16 = 5
             Select Case ComboBox4.Text
+                Case "1m"
+                    logTime = 1
+                Case "2m"
+                    logTime = 2
+                Case "3m"
+                    logTime = 3
                 Case "5m"
                     logTime = 5
+                Case "6m"
+                    logTime = 6
                 Case "10m"
                     logTime = 10
                 Case "15m"
@@ -785,7 +821,110 @@ cannot_connect:
             End If
 
             Dim setTime As String
-            setTime = CInt(sendTime / logTime)
+            setTime = sendTime \ logTime
+
+            AddToQueue("AT+CLOCKLOG=1,0," & logTime & "," & setTime & vbCr, 10000)
+            AddToQueue("AT+PARITY=2" & vbCr, 1000)
+        End If
+
+        ' Siemens SITRANS MAG 8000 (Modbus RTU, function 03 read holding registers):
+        ' Real hardware-tested AT command set (register offsets confirmed against actual
+        ' device reads — one register higher than the manual's naive "43xxx - 1" formula
+        ' used before). 4 slots, function 03:
+        '   Slot1 Flow                     0x0BB9, 2 reg (4B)  -> DATACUT1=0,0,0 (no cut)
+        '   Slot2 Forward+Reverse Total    0x0BC8, 8 reg (16B) -> DATACUT2=0,0,0 (no cut)
+        '                                   (combines both totaltype fields in one read)
+        '   Slot3 Alarm                    0x0BC7, 1 reg (2B)  -> DATACUT3=0,0,0 (no cut)
+        '   Slot4 Battery                  0x0BD5, 1 reg (2B)  -> DATACUT4=7,1,4 (1 byte @ pos4)
+        ' DATACUT="0,0,0" on slots 1-3 passes the raw Modbus frame through uncut (unlike the
+        ' a=2N+5,range=4~(2N+3) trimming used elsewhere) — server-side decode must account
+        ' for header/CRC bytes still being present in those slots' payload segments.
+        If (ComboBox5.Text = "Siemens MAG8000") Then
+            Dim id As UInt16 = 1
+            Dim id_hex As String
+            id_hex = Hex(id)
+
+            If Len(id_hex) < 2 Then
+                id_hex = "0" & id_hex
+            End If
+
+            AddToQueue("AT+CMDEAR=1,15" & vbCr, 4000)
+
+            AddToQueue("AT+COMMAND1=" & id_hex & " 03 0B B9 00 02,1" & vbCr, 500)
+            AddToQueue("AT+SEARCH1=0,0" & vbCr, 500)
+            AddToQueue("AT+DATACUT1=0,0,0" & vbCr, 500)
+            AddToQueue("AT+CMDDL1=100" & vbCr, 500)
+
+            AddToQueue("AT+COMMAND2=" & id_hex & " 03 0B C8 00 08,1" & vbCr, 500)
+            AddToQueue("AT+SEARCH2=0,0" & vbCr, 500)
+            AddToQueue("AT+DATACUT2=0,0,0" & vbCr, 500)
+            AddToQueue("AT+CMDDL2=100" & vbCr, 500)
+
+            AddToQueue("AT+COMMAND3=" & id_hex & " 03 0B C7 00 01,1" & vbCr, 500)
+            AddToQueue("AT+SEARCH3=0,0" & vbCr, 500)
+            AddToQueue("AT+DATACUT3=0,0,0" & vbCr, 500)
+            AddToQueue("AT+CMDDL3=100" & vbCr, 500)
+
+            AddToQueue("AT+COMMAND4=" & id_hex & " 03 0B D5 00 01,1" & vbCr, 500)
+            AddToQueue("AT+SEARCH4=0,0" & vbCr, 500)
+            AddToQueue("AT+DATACUT4=7,1,4" & vbCr, 500)
+            AddToQueue("AT+CMDDL4=0" & vbCr, 500)
+
+            Dim sendTime As UInt16 = 10
+            Select Case ComboBox3.Text
+                Case "1m"
+                    sendTime = 1
+                Case "5m"
+                    sendTime = 5
+                Case "10m"
+                    sendTime = 10
+                Case "15m"
+                    sendTime = 15
+                Case "30m"
+                    sendTime = 30
+                Case "1h"
+                    sendTime = 60
+                Case "2h"
+                    sendTime = 60 * 2
+                Case "3h"
+                    sendTime = 60 * 3
+                Case "6h"
+                    sendTime = 60 * 6
+                Case "12h"
+                    sendTime = 60 * 12
+                Case "24h"
+                    sendTime = 60 * 24
+            End Select
+
+            Dim logTime As UInt16 = 5
+            Select Case ComboBox4.Text
+                Case "1m"
+                    logTime = 1
+                Case "2m"
+                    logTime = 2
+                Case "3m"
+                    logTime = 3
+                Case "5m"
+                    logTime = 5
+                Case "6m"
+                    logTime = 6
+                Case "10m"
+                    logTime = 10
+                Case "15m"
+                    logTime = 15
+                Case "30m"
+                    logTime = 30
+                Case "60m"
+                    logTime = 60
+            End Select
+            Dim logTimeHex As String
+            logTimeHex = Hex(logTime)
+            If Len(logTimeHex) < 2 Then
+                logTimeHex = "0" & logTimeHex
+            End If
+
+            Dim setTime As String
+            setTime = sendTime \ logTime
 
             AddToQueue("AT+CLOCKLOG=1,0," & logTime & "," & setTime & vbCr, 10000)
             AddToQueue("AT+PARITY=2" & vbCr, 1000)
@@ -835,8 +974,16 @@ cannot_connect:
 
             Dim logTime As UInt16 = 5
             Select Case ComboBox4.Text
+                Case "1m"
+                    logTime = 1
+                Case "2m"
+                    logTime = 2
+                Case "3m"
+                    logTime = 3
                 Case "5m"
                     logTime = 5
+                Case "6m"
+                    logTime = 6
                 Case "10m"
                     logTime = 10
                 Case "15m"
@@ -853,7 +1000,7 @@ cannot_connect:
             End If
 
             Dim setTime As String
-            setTime = CInt(sendTime / logTime)
+            setTime = sendTime \ logTime
 
             AddToQueue("AT+CLOCKLOG=1,0," & logTime & "," & setTime & vbCr, 10000)
             AddToQueue("AT+PARITY=0" & vbCr, 1000)
@@ -892,13 +1039,24 @@ cannot_connect:
         'AddToQueue("AT+SERVADDR=157.66.81.22,1883" & vbCr, 5000)
         AddToQueue("AT+SERVADDR=43.216.183.205,1883" & vbCr, 5000)
 
-        AddToQueue("AT+5VT=1000" & vbCr, 1000)
+        AddToQueue("AT+5VT=4000" & vbCr, 1000)
         AddToQueue("AT+BAUDR=9600" & vbCr, 1000)
 
         AddToQueue("AT+MBFUN=1" & vbCr, 1000)
 
-        AddToQueue("AT+SUBTOPIC=Vilog_" & TextBox12.Text & "_" & TextBox11.Text & "_SUB" & vbCr, 10000)
-        AddToQueue("AT+PUBTOPIC=Vilog_" & TextBox12.Text & "_" & TextBox11.Text & "_PUB" & vbCr, 10000)
+        AddToQueue("AT+NTP=""my.pool.ntp.org""" & vbCr, 1000)
+
+        ' MAG8000 shares the same Model/"RS485-CB" JSON wrapper as every other meter type,
+        ' so the topic is the only place the meter type is distinguishable. Only prefix
+        ' the outgoing topic string with "MAG_" here — TextBox12 (Site Name) itself is
+        ' left untouched, other meter types keep their existing free-form topic.
+        Dim siteNamePrefixed As String = TextBox12.Text
+        If ComboBox5.Text = "Siemens MAG8000" Then
+            siteNamePrefixed = "MAG_" & TextBox12.Text
+        End If
+
+        AddToQueue("AT+SUBTOPIC=Vilog_" & siteNamePrefixed & "_" & TextBox11.Text & "_SUB" & vbCr, 10000)
+        AddToQueue("AT+PUBTOPIC=Vilog_" & siteNamePrefixed & "_" & TextBox11.Text & "_PUB" & vbCr, 10000)
 
         'AddToQueue("AT+GETSENSORVALUE=1" & vbCr, 1000)
 
@@ -908,8 +1066,9 @@ cannot_connect:
 
     ' --- sendTime/logTime dependency & device sample-count limit -------------------
     ' The Dragino data-logger can only buffer ~14 log samples between two send cycles.
-    ' setTime = CInt(sendTime / logTime) (see Krohne / Level Sensor branches in Config())
-    ' is that sample count, so any combo where sendTime/logTime > 14 is invalid.
+    ' setTime = sendTime \ logTime (floor; see Krohne / Siemens / Level Sensor
+    ' branches in Config()) is that sample count, so any combo where
+    ' sendTime \ logTime > 14 is invalid.
     ' Instead of silently overriding logTime at Config() time, we filter the logTime
     ' dropdown (ComboBox4) whenever the sendTime (ComboBox3) or sensor (ComboBox5)
     ' selection changes, so only valid options are ever selectable.
@@ -937,7 +1096,11 @@ cannot_connect:
     ' ComboBox4 (logTime) label -> minutes.
     Private Function LogTimeToMinutes(ByVal label As String) As Integer
         Select Case label
+            Case "1m" : Return 1
+            Case "2m" : Return 2
+            Case "3m" : Return 3
             Case "5m" : Return 5
+            Case "6m" : Return 6
             Case "10m" : Return 10
             Case "15m" : Return 15
             Case "30m" : Return 30
@@ -947,17 +1110,20 @@ cannot_connect:
     End Function
 
     ' logTime options each sensor can encode. All sensors (Aichi Tokei, Krohne, and the
-    ' Bavitech Level Sensor (BVT)) share the same 15/30/60m set. Aichi Tokei's
+    ' Bavitech Level Sensor (BVT)) share the same 1/2/3/5/6/15/30/60m set. Aichi Tokei's
     ' intervalLogTime is a plain 2-byte hex encoding of the raw minute value
-    ' (15=00 0F, 30=00 1E, 60=00 3C) in Config(), so it is not restricted to a lookup
-    ' table; the set is intentionally identical across sensors.
+    ' (1=00 01, 2=00 02, 3=00 03, 5=00 05, 6=00 06, 15=00 0F, 30=00 1E, 60=00 3C) in
+    ' Config(), so it is not restricted to a lookup table; the set is intentionally
+    ' identical across sensors.
     Private Function LogTimeCandidatesForSensor() As String()
-        Return New String() {"15m", "30m", "60m"}
+        Return New String() {"1m", "2m", "3m", "5m", "6m", "15m", "30m", "60m"}
     End Function
 
     ' Rebuild ComboBox4 (logTime) so it only offers options valid for the current
     ' sendTime (ComboBox3) and sensor (ComboBox5): keep logTime where
-    ' CInt(sendTime / logTime) <= 14 (same division used to compute setTime in Config()).
+    ' sendTime \ logTime (floor, matching the integer division used for setTime in
+    ' Config()) is between 1 and 14 inclusive. logTime need not evenly divide
+    ' sendTime — the last partial log window before an uplink is simply short.
     Private Sub RebuildLogTimeItems()
         Dim sendMin As Integer = SendTimeToMinutes(ComboBox3.Text)
         Dim candidates() As String = LogTimeCandidatesForSensor()
@@ -970,7 +1136,7 @@ cannot_connect:
         Else
             For Each c As String In candidates
                 Dim logMin As Integer = LogTimeToMinutes(c)
-                If logMin > 0 AndAlso CInt(sendMin / logMin) <= 14 Then
+                If logMin > 0 AndAlso logMin <= sendMin AndAlso (sendMin \ logMin) <= 14 Then
                     allowed.Add(c)
                 End If
             Next

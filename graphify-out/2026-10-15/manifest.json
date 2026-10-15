@@ -1,0 +1,167 @@
+{
+  ".vs/VilogLDC/v17/DocumentLayout.backup.json": {
+    "mtime": 1776822336.6352675,
+    "ast_hash": "0ee19ebe7aab0d432f5c572d81f6045e",
+    "semantic_hash": "0ee19ebe7aab0d432f5c572d81f6045e"
+  },
+  ".vs/VilogLDC/v17/DocumentLayout.json": {
+    "mtime": 1776822363.916128,
+    "ast_hash": "8652a16a09a1a3ac4e24711aa5bc39ee",
+    "semantic_hash": "8652a16a09a1a3ac4e24711aa5bc39ee"
+  },
+  ".vs/VilogLDC/v18/DocumentLayout.backup.json": {
+    "mtime": 1783564102.190002,
+    "ast_hash": "fd3e68c731ccb36d503eb80b7a4ea167",
+    "semantic_hash": ""
+  },
+  ".vs/VilogLDC/v18/DocumentLayout.json": {
+    "mtime": 1783564339.8097274,
+    "ast_hash": "9975911f6498fc848317fecfc7d9c79c",
+    "semantic_hash": ""
+  },
+  "SerialCom/.vs/VilogLDC.vbproj.dtbcache.json": {
+    "mtime": 1779255031.3713067,
+    "ast_hash": "d1de2212a638ea6245411c9cc87b8d64",
+    "semantic_hash": "d1de2212a638ea6245411c9cc87b8d64"
+  },
+  "SerialCom/VilogLDC.vbproj": {
+    "mtime": 1783669486.0117502,
+    "ast_hash": "19a4c224ba2a7922894b3e1ed1da409a",
+    "semantic_hash": ""
+  },
+  "VilogLDC.sln": {
+    "mtime": 1721179949.3680847,
+    "ast_hash": "0876c94e8f5532d255af2d84adb7ec9e",
+    "semantic_hash": "0876c94e8f5532d255af2d84adb7ec9e"
+  },
+  ".claude/settings.json": {
+    "mtime": 1783407655.2655625,
+    "ast_hash": "c7071dff21aa080cfc0019a524245784",
+    "semantic_hash": ""
+  },
+  ".claude/agents/serial-protocol-reviewer.md": {
+    "mtime": 1783407480.4883237,
+    "ast_hash": "7997fd5c10655eab9b83a1043b73c0b9",
+    "semantic_hash": ""
+  },
+  ".claude/agents/vb-winforms-developer.md": {
+    "mtime": 1783407461.4982905,
+    "ast_hash": "b578a5e330b5b961cdda652956d6031c",
+    "semantic_hash": ""
+  },
+  ".claude/skills/vb-winforms-conventions/SKILL.md": {
+    "mtime": 1783407541.302192,
+    "ast_hash": "54b0e2dcf9f1d0e579d95739f8224ea0",
+    "semantic_hash": ""
+  },
+  ".claude/skills/vilog-feature-workflow/SKILL.md": {
+    "mtime": 1783407686.773814,
+    "ast_hash": "9c9836ce26e4ad69d296c8f9fda255fb",
+    "semantic_hash": ""
+  },
+  ".claude/skills/vilog-serial-protocol/SKILL.md": {
+    "mtime": 1783407519.429288,
+    "ast_hash": "32766ff0951df28626f2889aa20c8682",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1783407693.685682,
+    "ast_hash": "fefa43b35e67cb0bd10f933351d09c37",
+    "semantic_hash": ""
+  },
+  "Note.txt": {
+    "mtime": 1783564987.803849,
+    "ast_hash": "a1599eae7f42046cb6637ec469ab1388",
+    "semantic_hash": ""
+  },
+  "SerialCom/obj/x86/Debug/LDC.vbproj.FileListAbsolute.txt": {
+    "mtime": 1721179949.3341753,
+    "ast_hash": "35ad3574f2b56c0a8a1435a379f361f5",
+    "semantic_hash": ""
+  },
+  "SerialCom/obj/x86/Debug/SerialCom.vbproj.FileListAbsolute.txt": {
+    "mtime": 1721179949.3371682,
+    "ast_hash": "fea9b3a82d59c46709ffa41911cce72b",
+    "semantic_hash": ""
+  },
+  "SerialCom/obj/x86/Debug/VilogLDC.vbproj.FileListAbsolute.txt": {
+    "mtime": 1783564085.3084474,
+    "ast_hash": "a2d860ab59bb40203ad1dab00bfeaf34",
+    "semantic_hash": ""
+  },
+  "SerialCom/obj/x86/Debug/WinLDC.vbproj.FileListAbsolute.txt": {
+    "mtime": 1721179949.3640957,
+    "ast_hash": "87b909ae625bb7cabb6900e31a7844a0",
+    "semantic_hash": ""
+  },
+  "_workspace/01_developer_summary.md": {
+    "mtime": 1783565016.877278,
+    "ast_hash": "f82b85af08825879ff4205ae1a9f4fcb",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_100412/01_developer_summary.md": {
+    "mtime": 1783475118.2414124,
+    "ast_hash": "5e43a556cb602c67e68dde89085a3725",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_100412/02_reviewer_findings.md": {
+    "mtime": 1783474975.9886034,
+    "ast_hash": "06aba2b69d7e84196f6336bc149dc99b",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_100412/03_developer_summary_rename.md": {
+    "mtime": 1783478716.5180056,
+    "ast_hash": "c63e8e85e8d97f48f7d63b6b1c3ee2c6",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_104803/01_developer_summary.md": {
+    "mtime": 1783482012.1324642,
+    "ast_hash": "b6ac07b62072b31c23a8ecf814f1bd17",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_104803/02_reviewer_findings.md": {
+    "mtime": 1783480341.979664,
+    "ast_hash": "7163e1336d8ac6b7e4d3bfb2a625ee0d",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_105431/01_developer_summary.md": {
+    "mtime": 1783482572.3003101,
+    "ast_hash": "5d3a4bdad9ee7de62bb2f656ec919919",
+    "semantic_hash": ""
+  },
+  "_workspace_20260708_105431/02_reviewer_findings.md": {
+    "mtime": 1783482679.5780284,
+    "ast_hash": "97b49a35e575efae68ff58ca9e898702",
+    "semantic_hash": ""
+  },
+  "_workspace_20260709_093719/01_developer_summary.md": {
+    "mtime": 1783494455.9124231,
+    "ast_hash": "2cc6f1daab7dc575832516df93f74c50",
+    "semantic_hash": ""
+  },
+  "_workspace_20260709_093719/02_reviewer_findings.md": {
+    "mtime": 1783483177.1738768,
+    "ast_hash": "4f2a78ab1476a5074d9f9876c25c2464",
+    "semantic_hash": ""
+  },
+  "_workspace_20260709_093719/03_developer_summary.md": {
+    "mtime": 1783494285.6598,
+    "ast_hash": "04a0cb1dd0eca051f7b51f92ef3bfcf1",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.en.md": {
+    "mtime": 1783668151.7147858,
+    "ast_hash": "f4b08f4f135908272f0da3d578b44fa3",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.md": {
+    "mtime": 1783668102.4882076,
+    "ast_hash": "6585dffb53e5c10bae1b6dc8486b9ebd",
+    "semantic_hash": ""
+  },
+  "_workspace/02_reviewer_findings.md": {
+    "mtime": 1783565162.4081626,
+    "ast_hash": "7a45b111f160545e76169815b81d6d85",
+    "semantic_hash": ""
+  }
+}

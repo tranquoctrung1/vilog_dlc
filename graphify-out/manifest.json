@@ -25,9 +25,9 @@
     "semantic_hash": "d1de2212a638ea6245411c9cc87b8d64"
   },
   "SerialCom/VilogLDC.vbproj": {
-    "mtime": 1779255031.3633063,
-    "ast_hash": "0f9747eae23c151df9887a45d8d0506b",
-    "semantic_hash": "0f9747eae23c151df9887a45d8d0506b"
+    "mtime": 1792034735.710121,
+    "ast_hash": "d86fdbc529be3fe0c14f399ffb3e48cf",
+    "semantic_hash": ""
   },
   "VilogLDC.sln": {
     "mtime": 1721179949.3680847,
@@ -72,11 +72,6 @@
   "Note.txt": {
     "mtime": 1783564987.803849,
     "ast_hash": "a1599eae7f42046cb6637ec469ab1388",
-    "semantic_hash": ""
-  },
-  "SerialCom/bin/Debug/VilogLDC_231225/Note.txt": {
-    "mtime": 1766465286.0699818,
-    "ast_hash": "dc5b32387b896d3b76e7d862c2b3ce04",
     "semantic_hash": ""
   },
   "SerialCom/obj/x86/Debug/LDC.vbproj.FileListAbsolute.txt": {
@@ -152,6 +147,21 @@
   "_workspace_20260709_093719/03_developer_summary.md": {
     "mtime": 1783494285.6598,
     "ast_hash": "04a0cb1dd0eca051f7b51f92ef3bfcf1",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.en.md": {
+    "mtime": 1792034762.1758833,
+    "ast_hash": "e770ca55e4822d7a7d2bbfbbc826f26a",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.md": {
+    "mtime": 1792034740.914941,
+    "ast_hash": "d146271801f3d921be5dc64408e9af7e",
+    "semantic_hash": ""
+  },
+  "_workspace/02_reviewer_findings.md": {
+    "mtime": 1783565162.4081626,
+    "ast_hash": "7a45b111f160545e76169815b81d6d85",
     "semantic_hash": ""
   }
 }

@@ -502,7 +502,7 @@ Partial Class Form1
         Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"Aichi Tokei", "Krohne", "Level Sensor (BVT)", "RTG"})
+        Me.ComboBox5.Items.AddRange(New Object() {"Aichi Tokei", "Krohne", "Level Sensor (BVT)", "RTG", "Siemens MAG8000"})
         Me.ComboBox5.Location = New System.Drawing.Point(399, 5)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(142, 28)
@@ -524,7 +524,7 @@ Partial Class Form1
         Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"15m", "30m", "60m"})
+        Me.ComboBox4.Items.AddRange(New Object() {"1m", "2m", "3m", "5m", "6m", "15m", "30m", "60m"})
         Me.ComboBox4.Location = New System.Drawing.Point(399, 83)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(142, 28)
